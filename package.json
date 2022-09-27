@@ -12,14 +12,35 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "dependencies": {
+    "antd": "^4.17.0",
+    "cross-env": "^7.0.3",
+    "cross-port-killer": "^1.4.0",
+    "grunt": "^1.5.3",
+    "react-dev-inspector": "^1.8.1"
+  },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
     "prettier": "latest",
     "turbo": "latest"
   },
-  "engines": {
-    "node": ">=14.0.0"
+  "packageManager": "pnpm@7.9.0",
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
+    "**/*.{js,jsx,tsx,ts,less,json}": [
+      "prettier --write"
+    ]
   },
-  "dependencies": {},
-  "packageManager": "pnpm@7.9.0"
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ],
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "gitHooks": {
+    "commit-msg": "fabric verify-commit"
+  }
 }

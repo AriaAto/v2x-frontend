@@ -1,0 +1,9 @@
+{
+  "extends": "tsconfig/base.json",
+  "include": [
+    "config/**/*", "**/*.ts", "**/*.tsx"],
+  "exclude": ["src/.umi/*"],
+  "path": {
+    "@/*": "./src/*"
+  }
+}

@@ -1,0 +1,26 @@
+version: '1'
+
+services:
+  center_view: 
+    container_name: CenterView
+    build: 
+      context: .
+      dockerfile: ./apps/center-view/Dockerfile
+    restart: always
+    ports: 8000:8000
+    networks:
+      - v2x_networks
+  
+  edge_view:
+    container_name: EdgeView
+    build: 
+      context: .
+      dockerfile: ./apps/edge-view/Dockerfile
+    restart: always
+    ports: 8001:8001
+    networks:
+      - v2x_networks
+
+networks:
+  v2x_networks:
+    external: true
